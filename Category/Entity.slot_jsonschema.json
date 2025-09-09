@@ -1,0 +1,496 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "skos": "https://www.w3.org/TR/skos-reference/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "wiki": "https://wiki-dev.open-semantic-lab.org/id/",
+    "Category": {
+      "@id": "wiki:Category-3A",
+      "@prefix": true
+    },
+    "File": {
+      "@id": "https://wiki-dev.open-semantic-lab.org/wiki/Special:Redirect/file/",
+      "@prefix": true
+    },
+    "Property": {
+      "@id": "wiki:Property-3A",
+      "@prefix": true
+    },
+    "Item": {
+      "@id": "wiki:Item-3A",
+      "@prefix": true
+    },
+    "attachments*": {
+      "@id": "Property:HasFileAttachment",
+      "@type": "@id"
+    },
+    "based_on": {
+      "@id": "skos:isBasedOn",
+      "@type": "@id"
+    },
+    "based_on*": {
+      "@id": "Property:IsBasedOn",
+      "@type": "@id"
+    },
+    "close_ontology_match": {
+      "@id": "skos:closeMatch",
+      "@type": "@id"
+    },
+    "close_ontology_match*": {
+      "@id": "Property:Equivalent_URI",
+      "@type": "@id"
+    },
+    "close_ontology_match**": {
+      "@id": "Property:HasCloseOntologyMatch",
+      "@type": "@id"
+    },
+    "description": {
+      "@id": "skos:definition"
+    },
+    "description*": {
+      "@id": "Property:HasDescription"
+    },
+    "exact_ontology_match": {
+      "@id": "skos:exactMatch",
+      "@type": "@id"
+    },
+    "exact_ontology_match*": {
+      "@id": "Property:Equivalent_URI",
+      "@type": "@id"
+    },
+    "exact_ontology_match**": {
+      "@id": "Property:HasExactOntologyMatch",
+      "@type": "@id"
+    },
+    "image": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "image*": {
+      "@id": "Property:HasImage",
+      "@type": "@id"
+    },
+    "keywords": {
+      "@id": "schema:keywords",
+      "@type": "@id"
+    },
+    "keywords*": {
+      "@id": "Property:HasKeyword",
+      "@type": "@id"
+    },
+    "label": {
+      "@id": "skos:prefLabel"
+    },
+    "label*": {
+      "@id": "Property:HasLabel"
+    },
+    "lang": {
+      "@id": "@language"
+    },
+    "meta": {
+      "@id": "Property:HasMeta",
+      "@type": "@id",
+      "@context": {
+        "change_id": {
+          "@id": "Property:HasChangeId",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    "name*": {
+      "@id": "Property:HasName"
+    },
+    "ordering_categories": {
+      "@id": "Property:Category",
+      "@type": "@id"
+    },
+    "ordering_categories*": {
+      "@id": "Property:HasClassificationCategory",
+      "@type": "@id"
+    },
+    "query_label": {
+      "@id": "Property:HasLabel",
+      "@type": "@id"
+    },
+    "rdf_type": {
+      "@id": "@type",
+      "@type": "@id"
+    },
+    "short_name": {
+      "@id": "Property:HasShortName"
+    },
+    "statements": {
+      "@id": "Property:HasStatement",
+      "@type": "@id"
+    },
+    "text": {
+      "@id": "@value"
+    },
+    "uuid*": {
+      "@id": "Property:HasUuid"
+    }
+  },
+  "uuid": "ce353767-c628-45bd-9d88-d6eb3009aec0",
+  "title": "Entity",
+  "type": "object",
+  "id": "entity",
+  "required": [
+    "uuid",
+    "label"
+  ],
+  "defaultProperties": [
+    "description"
+  ],
+  "properties": {
+    "rdf_type": {
+      "title": "Additional RDF type(s)",
+      "title*": {
+        "de": "Zusätzliche(r) RDF-Typ(en)"
+      },
+      "description": "Declares additional type(s) for this entity, thereby stating that this entity is an instance of an additional RDF class. See also https://schema.org/additionalType. Category:Entity is not directly instantiated. Therefor the inheriting classes (Category:Category, Category:Item, Category:Property) decide on the implementation and mapping within the \"@context\". The value must be a full IRI, e.g. https://schema.org/Person",
+      "description*": {
+        "de": "Deklariert zusätzliche(n) Typ(en) für diese Entität und gibt damit an, dass diese Entität eine Instanz einer zusätzlichen RDF-Klasse ist. Siehe auch https://schema.org/additionalType. Category:Entity wird nicht direkt instanziiert. Daher entscheiden die erbenden Klassen (Category:Category, Category:Item, Category:Property) über die Implementierung und das Mapping innerhalb des \"@context\". Der Wert muss eine vollständige IRI sein, z.B. https://schema.org/Person"
+      },
+      "type": "array",
+      "format": "table",
+      "items": {
+        "title": "RDF type",
+        "title*": {
+          "de": "RDF-Typ"
+        },
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "exact_ontology_match": {
+      "type": "array",
+      "title": "Ontology Match (Exact)",
+      "description": "Only use this property if all properties defined in the Ontology can be asserted to this object.",
+      "titel*": {
+        "de": "Ontologieübereinstimmung (exakt)"
+      },
+      "description*": {
+        "de": "Verwenden Sie diese Eigenschaft nur, wenn alle in der Ontologie definierten Eigenschaften auf dieses Objekt übertragen werden können."
+      },
+      "items": {
+        "type": "string",
+        "options": {
+          "compact": "true"
+        }
+      },
+      "uniqueItems": true
+    },
+    "close_ontology_match": {
+      "type": "array",
+      "title": "Ontology Match (Close)",
+      "description": "Use this property if you are not sure if all properties from the ontology can be asserted to this object but the meaning is very close.",
+      "titel*": {
+        "de": "Ontologieübereinstimmung (ähnlich)"
+      },
+      "description*": {
+        "de": "Verwenden Sie diese Eigenschaft, wenn Sie nicht sicher sind, ob alle Eigenschaften aus der Ontologie für dieses Objekt geltend gemacht werden können, die Bedeutung aber sehr nahe liegt."
+      },
+      "items": {
+        "type": "string",
+        "options": {
+          "compact": "true"
+        }
+      },
+      "uniqueItems": true
+    },
+    "uuid": {
+      "title": "UUID",
+      "type": "string",
+      "format": "uuid",
+      "options": {
+        "hidden": true
+      }
+    },
+    "iri": {
+      "title": "IRI",
+      "description": "The Internationalized Resource Identifier (IRI) of this entity",
+      "description*": {
+        "de": "Der internationalisierte Ressourcenbezeichner (IRI) dieser Entität"
+      },
+      "type": "string",
+      "format": "url",
+      "options": {
+        "hidden": true
+      }
+    },
+    "name": {
+      "title": "Technical name",
+      "title*": {
+        "de": "Technischer Name"
+      },
+      "description": "Technical / Machine compatible name",
+      "description*": {
+        "de": "Technischer / Maschinenkompatibler Name"
+      },
+      "type": "string",
+      "options": {
+        "hidden": true
+      }
+    },
+    "label": {
+      "type": "array",
+      "title": "Label(s)",
+      "title*": {
+        "de": "Bezeichnung(en)"
+      },
+      "description": "At least one label is required.",
+      "description*": {
+        "de": "Mindestens eine Bezeichnung ist erforderlich."
+      },
+      "format": "table",
+      "eval_template": [
+        {
+          "type": "mustache-wikitext",
+          "mode": "render",
+          "$comment": "Displays value according to user language with eng as fallback option. Note: {{=<% %>=}} changes mustache expression from {{..}} to <% %> for mixing with wikitext templates",
+          "value": "{{=<% %>=}} {{#switch:{{USERLANGUAGECODE}} <%#label%> | {{#ifeq: <%lang%>|en|#default|<%lang%>}} = <%text%> <%/label%> }}"
+        }
+      ],
+      "items": {
+        "title": "Label",
+        "title*": {
+          "de": "Bezeichnung"
+        },
+        "eval_template": [
+          {
+            "type": "wikitext",
+            "mode": "store",
+            "value": "{{{text}}}@{{{lang}}}"
+          }
+        ],
+        "$ref": "/wiki/JsonSchema:Label?action=raw"
+      },
+      "minItems": 1
+    },
+    "short_name": {
+      "type": "array",
+      "title": "Short name(s)",
+      "title*": {
+        "de": "Kurzname(n)"
+      },
+      "description": "Abbreviation, Acronym, etc.",
+      "description*": {
+        "de": "Abkürzung, Akronym, etc."
+      },
+      "format": "table",
+      "eval_template": {
+        "type": "mustache-wikitext",
+        "mode": "render",
+        "$comment": "Displays value according to user language with eng as fallback option. Note: {{=<% %>=}} changes mustache expression from {{..}} to <% %> for mixing with wikitext templates",
+        "value": "{{=<% %>=}} {{#switch:{{USERLANGUAGECODE}} <%#short_name%> | {{#ifeq: <%lang%>|en|#default|<%lang%>}} = <%text%> <%/short_name%> }}"
+      },
+      "items": {
+        "title": "Short name",
+        "title*": {
+          "de": "Kurzname"
+        },
+        "eval_template": [
+          {
+            "type": "wikitext",
+            "mode": "store",
+            "value": "{{{text}}}@{{{lang}}}"
+          }
+        ],
+        "$ref": "/wiki/JsonSchema:Label?action=raw"
+      }
+    },
+    "query_label": {
+      "title": "Query label",
+      "title*": {
+        "de": "Abfrage-Bezeichnung"
+      },
+      "type": "string",
+      "options": {
+        "hidden": true,
+        "conditional_visible": {
+          "modes": [
+            "query"
+          ]
+        }
+      }
+    },
+    "description": {
+      "title": "Description",
+      "title*": {
+        "de": "Beschreibung"
+      },
+      "type": "array",
+      "format": "table",
+      "eval_template": {
+        "type": "mustache-wikitext",
+        "mode": "render",
+        "$comment": "Displays value according to user language with eng as fallback option. Note: {{=<% %>=}} changes mustache expression from {{..}} to <% %> for mixing with wikitext templates",
+        "value": "{{=<% %>=}} {{#switch:{{USERLANGUAGECODE}} <%#description%> | {{#ifeq: <%lang%>|en|#default|<%lang%>}} = <%text%> <%/description%> }}"
+      },
+      "items": {
+        "eval_template": [
+          {
+            "type": "wikitext",
+            "mode": "store",
+            "value": "{{{text}}}@{{{lang}}}"
+          }
+        ],
+        "$ref": "/wiki/JsonSchema:Description?action=raw"
+      }
+    },
+    "image": {
+      "title": "Image",
+      "title*": {
+        "de": "Bild"
+      },
+      "propertyOrder": 1020,
+      "type": "string",
+      "format": "url",
+      "options": {
+        "upload": {}
+      },
+      "links": [
+        {
+          "href": "{{#if self}}/w/index.php?title=Special:Redirect/file/{{self}}&width=200&height=200{{/if}}",
+          "mediaType": "image"
+        },
+        {
+          "href": "{{#if self}}/w/index.php?title=Special:Redirect/file/{{self}}{{/if}}",
+          "rel": "{{#if self}}download{{/if}}",
+          "download": true
+        }
+      ]
+    },
+    "ordering_categories": {
+      "type": "array",
+      "format": "table",
+      "title": "Classification categories",
+      "title*": {
+        "de": "Ordnungskategorien"
+      },
+      "description": "Classification categories are used to categorize instances, e.g., according to their use but not their properties. When querying for instances of a here listed classification category, this instance will be returned. Note: Classification categories define no properties, while 'regular' categories define properties, which an instance assigns values to.",
+      "description*": {
+        "de": "Ordnungskategorien werden verwendet, um Instanzen zu kategorisieren, z. B. nach ihrer Verwendung, nicht aber nach ihren Eigenschaften. Bei der Abfrage nach Instanzen einer hier aufgeführten Ordnungskategorie wird diese Instanz zurückgegeben. Hinweis: Ordnungskategorien definieren keine Eigenschaften, während 'normale' Kategorien Eigenschaften definieren, denen eine Instanz Werte zuweist."
+      },
+      "eval_template": {
+        "type": "mustache-wikitext",
+        "mode": "render",
+        "value": "{{=<% %>=}}<%#ordering_categories%>[[:<%.%>]] <br> <%/ordering_categories%>"
+      },
+      "items": {
+        "title": "Classification category",
+        "title*": {
+          "de": "Ordnungskategorie"
+        },
+        "type": "string",
+        "format": "autocomplete",
+        "options": {
+          "autocomplete": {
+            "$comment": "SubCategories of Item OR OwlThing (Category:OSW379d5a1589c74c82bc0de47938264d00)",
+            "query": "[[SubClassOf::Category:Item]] OR [[SubClassOf.SubClassOf::Category:Item]] OR [[SubClassOf.SubClassOf.SubClassOf::Category:Item]] OR [[SubClassOf.SubClassOf.SubClassOf.SubClassOf::Category:Item]] OR [[SubClassOf.SubClassOf.SubClassOf.SubClassOf.SubClassOf::Category:Item]] OR [[SubClassOf::Category:OSW379d5a1589c74c82bc0de47938264d00]]"
+          }
+        }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "format": "table",
+      "title": "Keywords / Tags",
+      "title*": {
+        "de": "Schlagworte / Tags"
+      },
+      "description": "Designated to the user defined categorization of this element",
+      "description*": {
+        "de": "Dient der nutzerdefinierten Kategorisierung des Elements"
+      },
+      "eval_template": {
+        "type": "mustache-wikitext",
+        "mode": "render",
+        "value": "{{#keywords}}[[{{{.}}}]] <br> {{/keywords}}"
+      },
+      "items": {
+        "title": "Keyword",
+        "title*": {
+          "de": "Schlagwort"
+        },
+        "type": "string",
+        "format": "autocomplete",
+        "range": "Category:OSW09f6cdd54bc54de786eafced5f675cbe"
+      }
+    },
+    "based_on": {
+      "type": "array",
+      "title": "Based on",
+      "title*": {
+        "de": "Basierend auf"
+      },
+      "description": "Other entities on which this one is based, e.g. when it is created by copying",
+      "description*": {
+        "de": "Andere Entitäten auf die diese basiert, z. B. wenn sie durch Kopieren entstanden ist"
+      },
+      "items": {
+        "type": "string"
+      },
+      "options": {
+        "hidden": "true"
+      }
+    },
+    "statements": {
+      "type": "array",
+      "title": "Statements",
+      "title*": {
+        "de": "Aussagen"
+      },
+      "format": "tabs",
+      "propertyOrder": 1010,
+      "eval_template": {
+        "type": "mustache-wikitext",
+        "mode": "render",
+        "value": "{{#statements}}.. {{#predicate}}[[{{predicate}}]]{{/predicate}}{{#property}}[[{{property}}]]{{/property}}{{#quantity}}[[{{quantity}}]]{{/quantity}} {{#object}}[[{{object}}]]{{/object}}{{#value}}{{value}}{{/value}}<br>{{/statements}}"
+      },
+      "items": {
+        "$ref": "/wiki/JsonSchema:Statement?action=raw"
+      }
+    },
+    "attachments": {
+      "type": "array",
+      "title": "File attachments",
+      "title*": {
+        "de": "Dateianhänge"
+      },
+      "eval_template": {
+        "type": "mustache-wikitext",
+        "mode": "render",
+        "value": "{{=<% %>=}} <%={{ }}=%>  {{#attachments}}{{{.}}};{{/attachments}} {{=<% %>=}} <%={{ }}=%>"
+      },
+      "options": {
+        "collapsed": true
+      },
+      "propertyOrder": 1030,
+      "items": {
+        "title": "Attachment",
+        "title*": {
+          "de": "Anhang"
+        },
+        "type": "string",
+        "format": "url",
+        "options": {
+          "upload": {}
+        },
+        "links": [
+          {
+            "href": "{{#if self}}/w/index.php?title=Special:Redirect/file/{{self}}{{/if}}",
+            "rel": "{{#if self}}download{{/if}}",
+            "download": true
+          }
+        ]
+      }
+    },
+    "meta": {
+      "$ref": "/wiki/JsonSchema:Meta?action=raw",
+      "options": {
+        "hidden": true
+      }
+    }
+  }
+}
