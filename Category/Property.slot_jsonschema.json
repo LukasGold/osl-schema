@@ -1,9 +1,7 @@
 {
   "@context": [
     {
-      "description**": "emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
-      "description***": "Property:Has property description",
-      "elucidation*": "emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
+      "description**": "Property:Has property description",
       "exact_ontology_match***": {
         "@id": "owl:equivalentProperty",
         "@type": "@id"
