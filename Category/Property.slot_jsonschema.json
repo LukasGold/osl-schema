@@ -1,39 +1,15 @@
 {
   "@context": [
     {
-      "owl": "http://www.w3.org/2002/07/owl#",
-      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "type": {
-        "@id": "Property:HasType",
-        "@type": "@id"
-      },
-      "property_type": "Property:Has_type",
-      "label**": "Property:Has preferred property label",
-      "description**": "Property:Has property description",
+      "description**": "emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
+      "description***": "Property:Has property description",
+      "elucidation*": "emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
       "exact_ontology_match***": {
         "@id": "owl:equivalentProperty",
         "@type": "@id"
       },
       "external_uri": "Property:External_formatter_uri",
-      "ontology_iri": "Property:Equivalent_URI",
       "imported_from*": "Property:Imported_from",
-      "subproperty_of": {
-        "@id": "rdfs:subPropertyOf",
-        "@type": "@id"
-      },
-      "subproperty_of*": {
-        "@id": "Property:Subproperty_of",
-        "@type": "@id"
-      },
-      "relations": {
-        "@id": "rdfs:subPropertyOf",
-        "@type": "@id"
-      },
-      "relations*": {
-        "@id": "Property:HasRelation",
-        "@type": "@id"
-      },
       "inverse_of": {
         "@id": "owl:inverseOf",
         "@type": "@id"
@@ -42,10 +18,7 @@
         "@id": "Property:InverseOf",
         "@type": "@id"
       },
-      "see_also": {
-        "@id": "rdfs:seeAlso"
-      },
-      "see_also*": "Property:HasUrl",
+      "label**": "Property:Has preferred property label",
       "ontologies": {
         "@id": "rdfs:isDefinedBy",
         "@type": "@id"
@@ -54,8 +27,28 @@
         "@id": "Property:IsPartOf",
         "@type": "@id"
       },
-      "description": "emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9",
-      "elucidation*": "emmo:EMMO_967080e5_2f42_4eb2_a3a9_c58143e835f9"
+      "ontology_iri": "Property:Equivalent_URI",
+      "property_type": "Property:Has_type",
+      "relations": {
+        "@id": "rdfs:subPropertyOf",
+        "@type": "@id"
+      },
+      "relations*": {
+        "@id": "Property:HasRelation",
+        "@type": "@id"
+      },
+      "see_also": {
+        "@id": "rdfs:seeAlso"
+      },
+      "see_also*": "Property:HasUrl",
+      "subproperty_of": {
+        "@id": "rdfs:subPropertyOf",
+        "@type": "@id"
+      },
+      "subproperty_of*": {
+        "@id": "Property:Subproperty_of",
+        "@type": "@id"
+      }
     },
     "/wiki/Category:Entity?action=raw&slot=jsonschema"
   ],
@@ -102,7 +95,10 @@
       "title*": {
         "de": "Datentyp"
       },
-      "description": "see https://www.semantic-mediawiki.org/wiki/Help:List_of_datatypes",
+      "description": "See https://www.semantic-mediawiki.org/wiki/Help:List_of_datatypes",
+      "description*": {
+        "de": "Siehe https://www.semantic-mediawiki.org/wiki/Help:List_of_datatypes"
+      },
       "type": "string",
       "enum": [
         "Annotation URI",
@@ -190,6 +186,9 @@
         "de": "Ontologie-IRI(s)"
       },
       "description": "e. g. from https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html",
+      "description*": {
+        "de": "z. B. von https://www.qudt.org/doc/DOC_VOCAB-QUANTITY-KINDS.html"
+      },
       "type": "array",
       "items": {
         "title": "IRI",
@@ -200,13 +199,22 @@
     "ontologies": {
       "type": "array",
       "title": "Ontologies",
+      "title*": {
+        "de": "Ontologien"
+      },
       "description": "Ontologies that contain this term",
+      "description*": {
+        "de": "Ontologien, die diesen Begriff enthalten"
+      },
       "items": {
         "type": "string",
         "format": "autocomplete",
         "$comment": "range is OwlOntology",
         "range": "Category:OSW662db0a2ad0946148422245f84e82f64",
-        "title": "Ontology"
+        "title": "Ontology",
+        "title*": {
+          "de": "Ontologie"
+        }
       }
     },
     "subproperty_of": {
@@ -242,18 +250,9 @@
       }
     },
     "type": {
-      "title": "Type/Category",
-      "title*": {
-        "de": "Typ/Kategorie"
-      },
-      "description": "see also https://www.w3.org/TR/owl2-syntax/#Object_Properties",
-      "type": "array",
-      "items": {
-        "title": "Type",
-        "title*": {
-          "de": "Typ"
-        },
-        "type": "string"
+      "description": "See also https://www.w3.org/TR/owl2-syntax/#Object_Properties",
+      "description*": {
+        "de": "Siehe auch https://www.w3.org/TR/owl2-syntax/#Object_Properties"
       },
       "default": [
         "Category:Property"
@@ -262,7 +261,13 @@
     "see_also": {
       "type": "array",
       "title": "See also",
+      "title*": {
+        "de": "Siehe auch"
+      },
       "description": "External reference",
+      "description*": {
+        "de": "Externer Verweis"
+      },
       "items": {
         "type": "string",
         "format": "url",
@@ -271,7 +276,13 @@
     },
     "relations": {
       "title": "Relations",
+      "title*": {
+        "de": "Beziehungen"
+      },
       "description": "Relations of this property to other properties, instances or literals (OWL Restrictions)",
+      "description*": {
+        "de": "Beziehungen dieses Attributs zu anderen Attributen, Instanzen oder Literalwerten (OWL-Einschränkungen)"
+      },
       "type": "array",
       "eval_template": [
         {
@@ -283,6 +294,9 @@
       "items": {
         "type": "object",
         "title": "Relation",
+        "title*": {
+          "de": "Beziehung"
+        },
         "required": [
           "inverse_of"
         ],
