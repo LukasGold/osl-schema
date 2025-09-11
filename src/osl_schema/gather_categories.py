@@ -124,6 +124,45 @@ def get_subcategories(
     return unique_items
 
 
+def get_subcategories_and_metacategories(
+    osw_obj: OswExpress, category_fpt: str, max_depth: int = 5
+) -> list[dict[str, str]]:
+    """Retrieves subcategories and their meta categories for a given category.
+
+    Parameters
+    ----------
+    osw_obj
+        The OSW Express object for querying.
+    category_fpt
+        The full page title of the category.
+    max_depth
+        Maximum recursion depth.
+
+    Returns
+    -------
+    list of dict
+        List of dictionaries for subcategories and their meta categories.
+    """
+    subcategories = get_subcategories(
+        osw_obj=osw_obj,
+        category_fpt=category_fpt,
+        max_depth=max_depth
+    )
+    metacategories = list()
+    for subcat in subcategories:
+        subcat_fpt = subcat.get("title")
+        if subcat_fpt:
+            metacat_query = "[[-HasMetaCategory::{subcat_fpt}]]|?HasName=name".replace(
+                "{subcat_fpt}", subcat_fpt
+            )
+            metacat_results = query_return_dict_list(osw_obj, metacat_query)
+            metacategories.extend(metacat_results)
+    all_items = list(subcategories)
+    all_items.extend(metacategories)
+
+    return all_items
+
+
 def get_instances(
     osw_obj: OswExpress, category_fpt: str
 ) -> list[dict[str, str]]:
@@ -171,7 +210,7 @@ def get_all_instances_and_subcategories(
     list of dict
         List of dictionaries for all subcategories and instances.
     """
-    subcategories = get_subcategories(
+    subcategories = get_subcategories_and_metacategories(
         osw_obj=osw_obj,
         category_fpt=category_fpt,
         max_depth=max_depth
@@ -240,7 +279,7 @@ def append_subcategories_to_string(
     str
         The updated string with appended subcategories.
     """
-    subcats = get_subcategories(
+    subcats = get_subcategories_and_metacategories(
         osw_obj=osw_obj,
         category_fpt=category_fpt,
         max_depth=10
@@ -248,7 +287,7 @@ def append_subcategories_to_string(
     string = append_dict_to_string(
         string,
         subcats,
-        "and subcategories"
+        ", subcategories and meta categories"
     )
     return string
 
